@@ -1,0 +1,16 @@
+{
+    "name": "admin/brgyresidenceinfosys",
+  
+    "authors": [
+        {
+            "name": "Ched28",
+            "email": "75325713+Ched28@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
