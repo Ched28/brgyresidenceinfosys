@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2 {
+    color: #000;
+}
+/* side-menu css */
+
+.side-menu {
+    background: #0084fe;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.side-menu li {
+    font-size: 1.5em;
+    padding: 20px 20px 10px 0px;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.side-menu li:hover {
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+}
+/* side-menu css */
+/* header */
+.side-menu a{
+    text-decoration: none;
+    color: #fff;
+}
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    min-height: 10vh;
+    padding-left: 120px;
+    border-bottom: 2px solid #c4c4c4;
+}
+
+.header h1 {
+    font-weight: bold;
+}
+/* header */
+/* SEARCH RESIDENT INFO */
+/* search-contents */
+
+.search-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.search-bar input {
+    width: 700px;
+    height: 50px;
+    padding-left: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-btn {
+    background: #24FE00;
+    color: #fff;
+    border: 1px solid #24FE00;
+    font-weight: bold;
+    font-size: 17px;
+    width: 205px;
+    height: 50px;
+}
+
+.search-data {
+    margin-top: 20px;
+    max-width: 1000px;
+    padding-right: 200px;
+    height: 60vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.cenT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn {
+    width: 100%;
+    padding: 10px 0;
+    background: #0084fe;
+    color: #fff;
+    border: 1px solid #0084fe;
+}
+
+.search-data .card {
+    border: 2px solid #000;
+    margin-top: 10px;
+}
+
+.conDes {
+    line-height: 3px;
+}
+
+.conDes p {
+    font-weight: bold;
+}
+/* SEARCH RESIDENT INFO */
+/* AddResident INFO */
+
+.transaction-id {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 100px;
+}
+
+.user-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-details span {
+    width: 200px;
+    font-weight: bold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.user-input-field {
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+    border-radius: 0 !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.signiture {
+    background: #c4c4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    padding: 0;
+}
+
+.signiture canvas {
+    width: 100%;
+    height: 40vh;
+    border: 1px solid #000;
+}
+
+.brgy-id {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.brgy-title {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.canvas-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas-picture canvas {
+    border: 1px solid #000;
+    background-color: #c4c4c4;
+}
+
+.webcam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.webcam button {
+    width: 300px;
+    padding: 2px;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+.btn-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-confirm {
+    width: 300px;
+    padding: 5px;
+    background-color: #24FE00;
+    border: 1px solid #24FE00;
+    color: #fff;
+}
+
+.btn-save {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #0084fe;
+    background: #0084fe;
+    color: #fff;
+}
+
+.pss-modal {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-enter {
+    width: 200px;
+    padding: 5px;
+    background-color: #24FE00;
+    border: 1px solid #24FE00;
+    color: #fff;
+}
+
+.f-end {
+    display: flex;
+    justify-content: flex-end;
+}
+/* AddResident INFO */
+
+.fa-solid {
+    line-height: 1.4;
+}
+/* DASHBOARD */
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.clock-container {
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 25vh;
+}
+
+.time,
+.t-date {
+    margin: 0 50px 0 0;
+    padding: 0;
+}
+
+.time {
+    font-size: 5em;
+}
+
+.t-date {
+    font-size: 2em;
+}
+
+.welcome-content {
+    margin-top: 150px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-content h1 {
+    color: #fff;
+    font-size: 3em;
+}
+
+.welcome-content .btn-sh {
+    color: #fff;
+    background: #0084fe;
+    width: 200px;
+    font-size: 25px;
+    border: 1px solid #0084fe;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.welcome-search {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0;
+    width: 500px;
+}
+
+.res-num {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+
+.res-num span:nth-child(odd) {
+    font-size: 3em;
+}
+/* DASHBOARD */
+/* login */
+
+.title-text {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.title-text h1 {
+    font-size: 5em;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-container {
+    height: 100vh;
+    background: #0084fe;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: #fff;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.38);
+    padding: 20px;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 25px;
+    font-size: 3em;
+}
+
+.form-container span {
+    line-height: 3;
+    font-weight: bold;
+}
+
+.fa-style {
+    color: #000;
+    position: relative;
+    top: -85%;
+    left: 22%;
+    transform: translate(50%, -100%);
+}
+
+.btn-signIn {
+    width: 100%;
+    font-size: 1.5em;
+    color: #fff;
+    background: #0084fe;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 5px;
+}
+/* login */
+/* Profile */
+
+.profile-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 20px;
+    height: 20vh;
+}
+
+.transaction-log {
+    height: 40vh;
+    background: #c4c4c4;
+    border: 1px solid #000;
+}
+
+.img-container {
+    border: 1px solid #000;
+    height: 20vh;
+}
+/* profile */
+/* admin Dashboard */
+
+.btn-logout {
+    position: absolute;
+    left: 88%;
+    top: 90%;
+    transform: translate(50%, 100%);
+}
+
+.btn-logout a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+/* admin Dashboard */
+/* welcome */
+
+.confirmPass-container {
+    margin-top: 100px;
+}
+
+.confirmPass-container .holder {
+    margin: 5px;
+    width: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.btn-container {
+    padding-left: 200px;
+}
+
+.save-dataBtn {
+    margin-top: 10px;
+    background: #0084fe;
+    color: #fff;
+    border: 1px solid;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+}
+
+.skip-btn {
+    margin-top: 10px;
+    background: #FE3D00;
+    color: #fff;
+    border: 1px solid;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+}
+/* welcome */

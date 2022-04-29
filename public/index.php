@@ -12,7 +12,9 @@ $app->router->get('/AddResident', 'addresident');
 
 $app->router->get('/EditResident', 'editresident');
 
-
+$app->router->post('/AddResident', function(){
+    return 'handling submitted data';
+});
 
 
 $app->run();

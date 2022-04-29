@@ -22,79 +22,79 @@
 
                                     <div class="col user-details">
                                         <span>LAST NAME</span>
-                                        <input type="text" class="form-control user-input-field " placeholder="Enter Last Name">
+                                        <input type="text" class="form-control user-input-field " name="lastname" placeholder="Enter Last Name">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>CONTACT NO. 1</span>
-                                        <input type="number" class="form-control user-input-field" placeholder="Enter Primary Contact No.">
+                                        <input type="number" class="form-control user-input-field" name="contact1" placeholder="Enter Primary Contact No.">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>FIRST NAME</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter First Name">
+                                        <input type="text" class="form-control user-input-field" name="firstname" placeholder="Enter First Name">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>CONTACT NO. 2</span>
-                                        <input type="number" class="form-control user-input-field" placeholder="Enter Secondary Contact No.">
+                                        <input type="number" class="form-control user-input-field" name="contact2" placeholder="Enter Secondary Contact No.">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>MIDDLE NAME</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter Middle Name">
+                                        <input type="text" class="form-control user-input-field" name="middlename" placeholder="Enter Middle Name">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>TELEPHONE NO</span>
-                                        <input type="number" class="form-control user-input-field" placeholder="Enter Telephone No.">
+                                        <input type="number" class="form-control user-input-field" name="telNo" placeholder="Enter Telephone No.">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>SUFFIX</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter Suffix">
+                                        <input type="text" class="form-control user-input-field" name="suffix" placeholder="Enter Suffix">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>EMAIL</span>
-                                        <input type="email" class="form-control user-input-field" placeholder="Enter Email Address">
+                                        <input type="email" class="form-control user-input-field" name="emailadd" placeholder="Enter Email Address">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>BIRTH DATE</span>
-                                        <input type="date" class="form-control user-input-field">
+                                        <input type="date" name="bday" class="form-control user-input-field">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>RELIGION</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter Religion">
+                                        <input type="text" class="form-control user-input-field" name="religion" placeholder="Enter Religion">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>CIVIL STATUS</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter Civil Status">
+                                        <input type="text" class="form-control user-input-field" name="civilstatus" placeholder="Enter Civil Status">
                                     </div>
 
                                     <div class="col user-details">
                                         <span>RESIDENT TYPE</span>
-                                        <input type="number" class="form-control user-input-field" placeholder="Enter Resident Type">
+                                        <input type="number" class="form-control user-input-field" name="residenttype" placeholder="Enter Resident Type">
                                     </div>
                                 </div>
                                 <div class="row mt-1">
 
                                     <div class="col user-details">
                                         <span>NATIONALITY</span>
-                                        <input type="text" class="form-control user-input-field" placeholder="Enter Nationality">
+                                        <input type="text" class="form-control user-input-field" name="nationality" placeholder="Enter Nationality">
                                     </div>
                                     <div class="col user-details">
                                         <span></span>
@@ -168,7 +168,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn-confirm" data-bs-dismiss="modal">CONFIRM</button>
+                    <button type="" class="btn-confirm" data-bs-dismiss="modal">CONFIRM</button>
                 </div>
 
             </div>
@@ -187,7 +187,7 @@
                         <p class="mt-3 " style="font-weight: bold;">PLEASE ENTER YOUR PASSWORD </p>
                         <div class="pss-modal">
                             <input type="password" class="form-control" placeholder="Enter Your Password">
-                            <button class="btn-enter">ENTER</button>
+                            <button class="btn-enter" type="submit">ENTER</button>
                         </div>
                     </div>
                 </div>
