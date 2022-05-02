@@ -29,15 +29,15 @@ h2 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-right: 20px;
+    
 }
 
 .side-menu li {
-    font-size: 1.5em;
-    padding: 20px 20px 10px 0px;
+    font-size: 1.3em;
+    padding: 33px 13px 12px 20px;
     color: #fff;
     display: flex;
-    justify-content: flex-end;
+    
 }
 
 .side-menu li:hover {
@@ -52,11 +52,13 @@ h2 {
 }
 .header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-end;
     min-height: 10vh;
-    padding-left: 120px;
-    border-bottom: 2px solid #c4c4c4;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-bottom: 1px solid #c4c4c4;
+    
 }
 
 .header h1 {
@@ -129,136 +131,14 @@ h2 {
 }
 /* SEARCH RESIDENT INFO */
 /* AddResident INFO */
-
-.transaction-id {
-    display: flex;
-    justify-content: space-around;
-    padding-right: 100px;
-}
-
-.user-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-details span {
-    width: 200px;
-    font-weight: bold;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .user-input-field {
     border: none !important;
     border-bottom: 1px solid #000 !important;
     border-radius: 0 !important;
 }
 
-.form-control:focus {
-    box-shadow: none;
-}
 
-.signiture {
-    background: #c4c4c4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    padding: 0;
-}
 
-.signiture canvas {
-    width: 100%;
-    height: 40vh;
-    border: 1px solid #000;
-}
-
-.brgy-id {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-}
-
-.brgy-title {
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.canvas-picture {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.canvas-picture canvas {
-    border: 1px solid #000;
-    background-color: #c4c4c4;
-}
-
-.webcam {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.webcam button {
-    width: 300px;
-    padding: 2px;
-    background: #fff;
-    border: 1px solid #000;
-}
-
-.btn-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-confirm {
-    width: 300px;
-    padding: 5px;
-    background-color: #24FE00;
-    border: 1px solid #24FE00;
-    color: #fff;
-}
-
-.btn-save {
-    width: 300px;
-    padding: 5px;
-    border: 1px solid #0084fe;
-    background: #0084fe;
-    color: #fff;
-}
-
-.pss-modal {
-    display: flex;
-    flex-direction: row;
-}
-
-.btn-enter {
-    width: 200px;
-    padding: 5px;
-    background-color: #24FE00;
-    border: 1px solid #24FE00;
-    color: #fff;
-}
-
-.f-end {
-    display: flex;
-    justify-content: flex-end;
-}
-/* AddResident INFO */
-
-.fa-solid {
-    line-height: 1.4;
-}
 /* DASHBOARD */
 
 .banner {

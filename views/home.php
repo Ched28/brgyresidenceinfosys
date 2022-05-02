@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="welcome-content">
-                            <h1>WELCOME!</h1>
+                            <h1>WELCOME <?php echo $name ?></h1>
                             <div class="d-flex flex-row justify-content-between">
                                 <input type="text" class="form-control p-3 welcome-search" placeholder="SEARCH FOR RESIDENTS INFO">
                                 <button class="btn-sh"><i class="fa-solid fa-magnifying-glass ps-2"></i>Search</button>

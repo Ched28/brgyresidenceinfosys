@@ -9,7 +9,8 @@
     
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://kit.fontawesome.com/c66fb07322.js" crossorigin="anonymous"></script>
-    <title>Dashboard</title>
+    <link rel="icon" href="assets/img/logo.png">
+    <title>Resident Information System</title>
 </head>
 
 <body>
@@ -19,13 +20,13 @@
             <div class="col-lg-2 side-menu">
                 <ul>
                     
-                    <li><a href="/">DASHBOARD<i class="fa-solid fa-chart-line ps-2"></i></a></li>
-                    <li>RESIDENT<i class="fa-solid fa-people-roof ps-2"></i></li>
-                    <li><a href="/AddResident">ADD <i class="fa-solid fa-user-plus ps-2"></i></a></li>
-                    <li><a href="/EditResident">EDIT <i class="fa-solid fa-user-pen ps-2"></i></a></li>
-                    <li>SEARCH <i class="fa-solid fa-magnifying-glass ps-2"></i></li>
-                    <li>REQUEST ID <i class="fa-solid fa-id-card ps-2"></i></li>
-                    <li>PROFILE <i class="fa-solid fa-user ps-2"></i></li>
+                    <li><i class="fa-solid fa-chart-line ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">DASHBOARD</a></li>
+                    <li><i class="fa-solid fa-people-roof ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;RESIDENT</li>
+                    <li><i class="fa-solid fa-user-plus ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/AddResident">ADD </a></li>
+                    <li><i class="fa-solid fa-user-pen ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/EditResident">EDIT </a></li>
+                    <li><i class="fa-solid fa-magnifying-glass ps-2">&nbsp;&nbsp;&nbsp;&nbsp;</i>SEARCH </li>
+                    <li><i class="fa-solid fa-id-card ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;REQUEST ID </li>
+                    <li><i class="fa-solid fa-user ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;PROFILE </li>
                 </ul>
 
             </div>
