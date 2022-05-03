@@ -20,10 +20,19 @@ class SiteController extends Controller{
         return Application::$app->router->renderView('editresident');
     }
     public function AddResident(Request $request){
+        $AddResidentModel = new AddResidentModel();
         if($request->isPOST()){
-            $AddResidentModel = new AddResidentModel();
-            return "handling data";
+            $AddResidentModel->loadData($request->getBody());
+
+            if($AddResidentModel->validate() && $AddResidentModel->addData()){
+                return "success!";
+            }
+            return $this->render('addresident', [
+                'model' => $AddResidentModel
+            ]);
         }
-        return $this->render('addresident');
+        return $this->render('addresident', [
+            'model' => $AddResidentModel
+        ]);
     }
 }

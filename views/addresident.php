@@ -14,8 +14,71 @@
 </div>
 <div class="container p-0 m-3">
 
+<?php $form = \app\core\form\Form::begin('', "post");?>
+
+    <fieldset>
+    <legend>Personal Information</legend>
+    <hr>
+    <div class="row">
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'lastname') ?>
+    <?php echo $form->field($model, 'firstname') ?>
+    <?php echo $form->field($model, 'middlename') ?>
+    </div>
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'suffix') ?>
+    <?php echo $form->field($model, 'birthday') ?>
+    <?php echo $form->field($model, 'birthplace') ?>
+    </div>
+    </div>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset>
+    <legend>Contact Information</legend>
+    <hr>
+    <div class="row">
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'contact1') ?>
+    <?php echo $form->field($model, 'contact2') ?>
+    </div>
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'telno') ?>
+    <?php echo $form->field($model, 'emailadd') ?>
+    </div>
+    </div>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset>
+    <legend>Another Information</legend>
+    <hr>
+    <div class="row">
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'gender') ?>
+    <?php echo $form->field($model, 'civilstatus') ?>
+    <?php echo $form->field($model, 'province') ?>
+    </div>
+    <div class="col-lg-6">
+    <?php echo $form->field($model, 'religion') ?>
+    <?php echo $form->field($model, 'nationality') ?>
+    </div>
+    </div>
+    </fieldset>
+    <br>
+    <br>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 d-flex">
+            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-qrcode"></i> &nbsp;&nbsp; Generate QR Code </button>
+        </div>
+    </div>
+    <br>
+    <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+<?php echo \app\core\form\Form::end();?>
     
-    <form action="" method="post">
+    <!-- <form action="" method="post">
     <fieldset>
     <legend>Personal Information</legend>
     <hr>
@@ -58,12 +121,12 @@
     <div class="row">
     <div class="col-lg-6">
     <div class="form-group">
-    <label for="con1">Contact Number 1 </label>
-    <input type="text" class="form-control user-input-field" name="con1" placeholder="Contact Number 1">   
+    <label for="contact1">Contact Number 1 </label>
+    <input type="text" class="form-control user-input-field" name="contact1" placeholder="Contact Number 1">   
     </div>
     <div class="form-group">
-    <label for="con2">Contact Number 2</label>
-    <input type="text" class="form-control user-input-field" name="con2" placeholder="Contact Number 2">   
+    <label for="contact2">Contact Number 2</label>
+    <input type="text" class="form-control user-input-field" name="contact2" placeholder="Contact Number 2">   
     </div>
     </div>
     <div class="col-lg-6">
@@ -109,7 +172,7 @@
     <div class="col-lg-6">
     <div class="form-group">
     <label for="religion">Religion </label>
-    <input type="text" class="form-control user-input-field" name="telno" placeholder="Religion">   
+    <input type="text" class="form-control user-input-field" name="religion" placeholder="Religion">   
     </div>
     <div class="form-group">
     <label for="nationality">Nationality </label>
@@ -132,4 +195,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-</div>
+</div> -->
