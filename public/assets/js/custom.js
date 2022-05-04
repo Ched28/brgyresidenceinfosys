@@ -50,3 +50,5 @@ function updateTime() {
     document.getElementsByClassName("date")[0].innerHTML = currentDate;
 
 }
+
+

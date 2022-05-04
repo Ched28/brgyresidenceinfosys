@@ -21,14 +21,15 @@
     <hr>
     <div class="row">
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'lastname') ?>
-    <?php echo $form->field($model, 'firstname') ?>
-    <?php echo $form->field($model, 'middlename') ?>
+
+    <?php echo $form->field($model, 'lastname', 'Last Name' ) ?>
+    <?php echo $form->field($model, 'firstname', 'First Name') ?>
+    <?php echo $form->field($model, 'middlename','Middle Name') ?>
     </div>
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'suffix') ?>
-    <?php echo $form->field($model, 'birthday') ?>
-    <?php echo $form->field($model, 'birthplace') ?>
+    <?php echo $form->field($model, 'suffix', 'suffix') ?>
+    <?php echo $form->field($model, 'birthday', 'birthday')->typeDate() ?>
+    <?php echo $form->field($model, 'birthplace', 'birth Place') ?>
     </div>
     </div>
     </fieldset>
@@ -39,12 +40,12 @@
     <hr>
     <div class="row">
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'contact1') ?>
-    <?php echo $form->field($model, 'contact2') ?>
+    <?php echo $form->field($model, 'contact1','Contact Number 1')->numberField() ?>
+    <?php echo $form->field($model, 'contact2', 'Contact Number 2')->numberField() ?>
     </div>
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'telno') ?>
-    <?php echo $form->field($model, 'emailadd') ?>
+    <?php echo $form->field($model, 'telno', 'Telephone Number')->numberField()?>
+    <?php echo $form->field($model, 'emailadd', 'Email Address')->emailField() ?>
     </div>
     </div>
     </fieldset>
@@ -55,13 +56,27 @@
     <hr>
     <div class="row">
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'gender') ?>
-    <?php echo $form->field($model, 'civilstatus') ?>
-    <?php echo $form->field($model, 'province') ?>
+        <div class="form-group">
+            <label for="gender">Gender </label>
+            <select name="gender"  value="<?php echo $model->gender ?>" class="custom-select w-100 pt-2 pb-2" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="civilstatus">Civil Status </label>
+            <select name="civilstatus" class="custom-select w-100 pt-2 pb-2" required>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+            </select>
+        </div>
+    <?php echo $form->field($model, 'province', 'province') ?>
     </div>
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'religion') ?>
-    <?php echo $form->field($model, 'nationality') ?>
+    <?php echo $form->field($model, 'religion', 'religion') ?>
+    <?php echo $form->field($model, 'nationality', 'nationality') ?>
+    <?php echo $form->field($model, 'transactionid', '' )->typeHidden(); ?>
+    <?php echo $form->field($model, 'brgyid', '')->typeHidden(); ?>
     </div>
     </div>
     </fieldset>
@@ -70,7 +85,9 @@
     <hr>
     <div class="row">
         <div class="col-lg-6 d-flex">
-            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-qrcode"></i> &nbsp;&nbsp; Generate QR Code </button>
+            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-qrcode"></i> &nbsp;&nbsp; Generate QR Code </button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-signature"></i> &nbsp;&nbsp; Add Signature </button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="confirm-btn btn btn-primary"> <i class="fa-solid fa-check"></i> &nbsp;&nbsp; Confirm Data </button>
         </div>
     </div>
     <br>

@@ -56,7 +56,7 @@ abstract class Model{
         }
         $this->errors[$attribute][] = $message;
     }
-    public function errorMessages(){
+    public function errorMessages(): array{
 
         return [
             self::RULES_REQUIRED => 'This field is required',

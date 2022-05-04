@@ -16,7 +16,7 @@ class Form{
         echo '</form>';
     }
 
-    public function field(Model $model, string $attribute = ' '){
-        return new Field($model, $attribute);
+    public function field(Model $model, string $attribute, string $label){
+        return new Field($model, $attribute, $label);
     }
 }

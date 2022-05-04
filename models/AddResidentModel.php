@@ -3,32 +3,41 @@
 
 namespace app\models;
 
+use app\core\DbModel;
 use app\core\Model;
 
-class AddResidentModel extends Model{
-    public string $lastname = " ";
-    public string $firstname = " ";
-    public string $middlename = " ";
-    public string $suffix = " ";
-    public string $birthday = " ";
-    public string $birthplace = " ";
-    public string $contact1 = " ";
-    public string $contact2 = " ";
-    public string $telno = " ";
-    public string $emailadd = " ";
-    public string $gender = " ";
-    public string $civilstatus = " ";
-    public string $province = " ";
-    public string $religion = " ";
-    public string $nationality = " ";
+class AddResidentModel extends DbModel {
+    public string $transactionid = '';
+    public string $brgyid = '';
+    public string $lastname = '';
+    public string $firstname = '';
+    public string $middlename ='';
+    public string $suffix = '';
+    public string $birthday = '';
+    public string $birthplace = '';
+    public string $contact1 = '';
+    public string $contact2 = '';
+    public string $telno = '';
+    public string $emailadd = '';
+    public string $gender = '';
+    public string $civilstatus = '';
+    public string $province = '';
+    public string $religion = '';
+    public string $nationality = '';
 
-    
+    public function tableName() : string
+    {
+        return 'brgy_res_info';
+    }
+
     public function addData(){
-        return "Adding Resident Data";
+        $this->save();
     }
 
     public function rules(): array{
         return [
+            'transactionid' => [self::RULES_REQUIRED],
+            'brgyid' => [self::RULES_REQUIRED],
             'lastname' => [self::RULES_REQUIRED],
             'firstname' => [self::RULES_REQUIRED],
             'middlename' => [self::RULES_REQUIRED],
@@ -41,7 +50,29 @@ class AddResidentModel extends Model{
             'civilstatus' => [self::RULES_REQUIRED],
             'religion' => [self::RULES_REQUIRED],
             'nationality' => [self::RULES_REQUIRED],
+            'province' => [self::RULES_REQUIRED],
             
+        ];
+    }
+
+    public function attributes(): array{
+        return [
+            'brgyid',
+            'lastname',
+            'firstname',
+            'middlename',
+            'suffix',
+            'birthday',
+            'birthplace',
+            'contact1',
+            'contact2',
+            'telno',
+            'emailadd',
+            'gender',
+            'civilstatus',
+            'religion',
+            'nationality',
+            'province',
         ];
     }
 

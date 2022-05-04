@@ -23,7 +23,6 @@ class SiteController extends Controller{
         $AddResidentModel = new AddResidentModel();
         if($request->isPOST()){
             $AddResidentModel->loadData($request->getBody());
-
             if($AddResidentModel->validate() && $AddResidentModel->addData()){
                 return "success!";
             }
