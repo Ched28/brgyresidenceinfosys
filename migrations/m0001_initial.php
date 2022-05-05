@@ -30,15 +30,15 @@ CREATE TABLE `brgy_emp_inf` (
 
 
 CREATE TABLE `brgy_res_info` (
-  `brgy_idno` varchar(20) NOT NULL,
+  `brgyid` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
   `firstname` varchar(20) NOT NULL,
   `middlename` varchar(20) NOT NULL,
   `suffix` varchar(10) NOT NULL,
   `Birthday` date NOT NULL,
   `Birthplace` varchar(20) NOT NULL,
-  `ContactNo1` varchar(15) NOT NULL,
-  `ContactNo2` varchar(15) NOT NULL,
+  `contact1` varchar(15) NOT NULL,
+  `contact2` varchar(15) NOT NULL,
   `TelNo` int(15) NOT NULL,
   `EmailAdd` varchar(50) NOT NULL,
   `gender` varchar(20) NOT NULL,
@@ -50,18 +50,6 @@ CREATE TABLE `brgy_res_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
-CREATE TABLE `brgy_transaction` (
-  `ReferenceNo` int(30) NOT NULL,
-  `Trans_method` varchar(20) NOT NULL,
-  `Trans_Type` varchar(20) NOT NULL,
-  `brgy_idno` varchar(20) NOT NULL,
-  `EmpId` varchar(20) NOT NULL,
-  `Trans_date` date NOT NULL,
-  `Trans_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 ALTER TABLE `brgy_admin_info`
   ADD PRIMARY KEY (`admin_id`);
 
@@ -70,11 +58,7 @@ ALTER TABLE `brgy_emp_inf`
   ADD PRIMARY KEY (`EmpId`);
 
 ALTER TABLE `brgy_res_info`
-  ADD PRIMARY KEY (`brgy_idno`);
-
-
-ALTER TABLE `brgy_transaction`
-  ADD PRIMARY KEY (`ReferenceNo`);
+  ADD PRIMARY KEY (`brgyid`);
 
     
         ";

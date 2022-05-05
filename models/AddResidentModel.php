@@ -7,6 +7,11 @@ use app\core\DbModel;
 use app\core\Model;
 
 class AddResidentModel extends DbModel {
+
+    const RESIDENT_TYPE_NEW = 'New';
+    const RESIDENT_TYPE_OLD = 'Old';
+    const TRANSACT_TYPE_NEW = 'NEW RESIDENT';
+    const TRANSACT_METHOD_ADD = 'ADD';
     public string $transactionid = '';
     public string $brgyid = '';
     public string $lastname = '';
@@ -24,15 +29,33 @@ class AddResidentModel extends DbModel {
     public string $province = '';
     public string $religion = '';
     public string $nationality = '';
+    public string $residenttype = '';
+    public string $trans_type = '';
+    public string $trans_method = '';
+
 
     public function tableName() : string
     {
         return 'brgy_res_info';
     }
-
-    public function addData(){
-        $this->save();
+    public function TransactTable(): string {
+        return 'brgy_transaction';
     }
+    public function save(){
+        $this->saveForTransaction();
+        $this->residenttype = self::RESIDENT_TYPE_NEW;
+        parent::save();
+    }
+    public function saveForTransaction()
+    {
+
+
+        $this->trans_type = self::TRANSACT_TYPE_NEW;
+        $this->trans_method = self::TRANSACT_METHOD_ADD;
+        parent::saveForTransaction();
+    }
+
+    // for password encrpt $this->password = password_hash($this->password, PASSWORD_DEFAULT); return parent::save();
 
     public function rules(): array{
         return [
@@ -73,7 +96,19 @@ class AddResidentModel extends DbModel {
             'religion',
             'nationality',
             'province',
-        ];
+            'residenttype',
+
+            ];
+    }
+
+    public function attributesforTransact(): array {
+            return [
+                'transactionid',
+                'brgyid',
+                'trans_method',
+                'trans_type',
+
+            ];
     }
 
 }

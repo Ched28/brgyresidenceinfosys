@@ -9,7 +9,8 @@ class SiteController extends Controller{
 
     public function home(){
         $params = [
-            'name' => 'Chedrick'
+            'name' => 'Chedrick',
+            'emailadd' => 'chedrick@gmail.com'
         ];
         return $this->render('home', $params);
     }
@@ -23,7 +24,7 @@ class SiteController extends Controller{
         $AddResidentModel = new AddResidentModel();
         if($request->isPOST()){
             $AddResidentModel->loadData($request->getBody());
-            if($AddResidentModel->validate() && $AddResidentModel->addData()){
+            if($AddResidentModel->validate() && $AddResidentModel->save()){
                 return "success!";
             }
             return $this->render('addresident', [
