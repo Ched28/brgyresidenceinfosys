@@ -5,7 +5,7 @@ class m0004_altercolumninTransacTable
     {
         $db = \app\core\Application::$app->db;
         $SQL = "CREATE TABLE `brgy_transaction` (
-  `transactionid` int(30) NOT NULL,
+  `transactionid` varchar(30) NOT NULL,
   `Trans_method` varchar(20) NOT NULL,
   `Trans_Type` varchar(20) NOT NULL,
   `brgyid` varchar(20) NOT NULL,

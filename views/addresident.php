@@ -8,8 +8,7 @@
 <h1>ADD RESIDENT </h1>
 </div>
 <div>
-<p>TRANSACTION ID : 568943DFD45903ER043010304 </p>
-<p>Barangay ID : BSB-1234 </p>
+
 </div>
 </div>
 <div class="container p-0 m-3">
@@ -75,8 +74,8 @@
     <div class="col-lg-6">
     <?php echo $form->field($model, 'religion', 'religion') ?>
     <?php echo $form->field($model, 'nationality', 'nationality') ?>
-    <?php echo $form->field($model, 'transactionid', '' )->typeHidden(); ?>
-    <?php echo $form->field($model, 'brgyid', '')->typeHidden(); ?>
+
+
     </div>
     </div>
     </fieldset>

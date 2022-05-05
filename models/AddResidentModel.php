@@ -3,6 +3,7 @@
 
 namespace app\models;
 
+use app\core\Application;
 use app\core\DbModel;
 use app\core\Model;
 
@@ -42,12 +43,48 @@ class AddResidentModel extends DbModel {
         return 'brgy_transaction';
     }
     public function save(){
+
+        $statement = Application::$app->db->prepare("SELECT `brgyid` FROM `brgy_res_info` ORDER BY `brgyid` DESC LIMIT 1;");
+        $statement->execute();
+
+        $rowCount = $statement->rowCount();
+
+        if($rowCount > 0){
+            foreach ($statement as $row){
+                $brgyidno = $row['brgyid'];
+                $get_numbers = str_replace("BSB-", "", $brgyidno);
+                $inc_number = $get_numbers+1;
+                $get_string = str_pad($inc_number, 4, 0, STR_PAD_LEFT);
+                $this->brgyid = "BSB-$get_string";
+            }
+        }else{
+            $this->brgyid = 'BSB-0001';
+        }
+
+
         $this->saveForTransaction();
         $this->residenttype = self::RESIDENT_TYPE_NEW;
         parent::save();
     }
     public function saveForTransaction()
     {
+        $statement = Application::$app->db->prepare("SELECT `transactionid` FROM `brgy_transaction` ORDER BY `transactionid` DESC LIMIT 1;");
+        $statement->execute();
+
+        $rowCount = $statement->rowCount();
+
+        if($rowCount > 0){
+            foreach ($statement as $row){
+                $transactionidno = $row['transactionid'];
+                $get_numbers = str_replace("TRANSACT-2022-", "", $transactionidno);
+                $inc_number = $get_numbers+1;
+                $get_year = date('Y');
+                $get_string = str_pad($inc_number, 7, 0, STR_PAD_LEFT);
+                $this->transactionid = "TRANSACT-$get_year-$get_string";
+            }
+        }else{
+            $this->transactionid = 'TRANSACT-2022-0000001';
+        }
 
 
         $this->trans_type = self::TRANSACT_TYPE_NEW;
@@ -59,8 +96,6 @@ class AddResidentModel extends DbModel {
 
     public function rules(): array{
         return [
-            'transactionid' => [self::RULES_REQUIRED],
-            'brgyid' => [self::RULES_REQUIRED],
             'lastname' => [self::RULES_REQUIRED],
             'firstname' => [self::RULES_REQUIRED],
             'middlename' => [self::RULES_REQUIRED],
@@ -110,5 +145,7 @@ class AddResidentModel extends DbModel {
 
             ];
     }
+
+
 
 }
