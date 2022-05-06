@@ -24,12 +24,18 @@ class SiteController extends Controller{
         $AddResidentModel = new AddResidentModel();
         if($request->isPOST()){
             $AddResidentModel->loadData($request->getBody());
-            if($AddResidentModel->validate() && $AddResidentModel->save()){
-                return "success!";
+            if($AddResidentModel->validate()){
+               // return '<script>alert("Welcome to Geeks for Geeks")</script>';
+               // return header('LOCATION: /');
+                $AddResidentModel->save();
+                $AddResidentModel->saveForTransaction();
+                return Application::$app->response->redirect('/');
+            }else{
+                return $this->render('addresident', [
+                    'model' => $AddResidentModel
+                ]);
             }
-            return $this->render('addresident', [
-                'model' => $AddResidentModel
-            ]);
+
         }
         return $this->render('addresident', [
             'model' => $AddResidentModel

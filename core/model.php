@@ -35,9 +35,9 @@ abstract class Model{
                  if($ruleName === self::RULES_REQUIRED && !$value){
                     $this->addError($attribute, self::RULES_REQUIRED);
                  }
-                 if($ruleName === self::RULES_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
-                     $this->addError($attribute, self::RULES_EMAIL);
-                 }
+                // if($ruleName === self::RULES_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
+                  //   $this->addError($attribute, self::RULES_EMAIL);
+                 //}
                  if($ruleName === self::RULES_MIN && strlen($value) < $rule['min']){
                     $this->addError($attribute, self::RULES_MIN, $rule);
                  }

@@ -61,10 +61,10 @@ class AddResidentModel extends DbModel {
             $this->brgyid = 'BSB-0001';
         }
 
-
-        $this->saveForTransaction();
         $this->residenttype = self::RESIDENT_TYPE_NEW;
+
         parent::save();
+
     }
     public function saveForTransaction()
     {
@@ -103,12 +103,12 @@ class AddResidentModel extends DbModel {
             'birthplace' => [self::RULES_REQUIRED],
             'contact1' => [self::RULES_REQUIRED, [self::RULES_MIN, 'min' => 10], [self::RULES_MAX, 'max' => 11]],
             // 'contact2' => [[self::RULES_MIN, 'min' => 10], [self::RULES_MAX, 'max' => 11]],
-            'emailadd' => [self::RULES_REQUIRED, self::RULES_EMAIL],
+            'emailadd' => [self::RULES_REQUIRED],
             'gender' => [self::RULES_REQUIRED],
             'civilstatus' => [self::RULES_REQUIRED],
             'religion' => [self::RULES_REQUIRED],
             'nationality' => [self::RULES_REQUIRED],
-            'province' => [self::RULES_REQUIRED],
+            'province' => [self::RULES_REQUIRED]
             
         ];
     }
