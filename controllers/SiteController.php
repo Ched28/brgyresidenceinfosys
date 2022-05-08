@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\models\AddEmployee;
 use app\models\AddResidentModel;
 class SiteController extends Controller{
 
@@ -27,9 +28,13 @@ class SiteController extends Controller{
             if($AddResidentModel->validate()){
                // return '<script>alert("Welcome to Geeks for Geeks")</script>';
                // return header('LOCATION: /');
+                //$AddResidentModel->save();
                 $AddResidentModel->save();
                 $AddResidentModel->saveForTransaction();
-                return Application::$app->response->redirect('/');
+
+                Application::$app->session->setFlash('success', 'The Resident has been Added!');
+                Application::$app->response->redirect('/');
+
             }else{
                 return $this->render('addresident', [
                     'model' => $AddResidentModel
@@ -39,6 +44,31 @@ class SiteController extends Controller{
         }
         return $this->render('addresident', [
             'model' => $AddResidentModel
+        ]);
+    }
+    public function AddEmployee(Request $request){
+        $AddEmployee = new AddEmployee();
+        if($request->isPOST()){
+            $AddEmployee->loadData($request->getBody());
+            if($AddEmployee->validate()){
+                // return '<script>alert("Welcome to Geeks for Geeks")</script>';
+                // return header('LOCATION: /');
+                //$AddResidentModel->save();
+                $AddEmployee->save();
+                $AddEmployee->saveForTransaction();
+
+                Application::$app->session->setFlash('success', 'The Employee has been Added!');
+                Application::$app->response->redirect('/');
+
+            }else{
+                return $this->render('AddEmployee', [
+                    'model' => $AddEmployee
+                ]);
+            }
+
+        }
+        return $this->render('AddEmployee', [
+            'model' => $AddEmployee
         ]);
     }
 }

@@ -26,9 +26,9 @@
     <?php echo $form->field($model, 'middlename','Middle Name') ?>
     </div>
     <div class="col-lg-6">
-    <?php echo $form->field($model, 'suffix', 'suffix') ?>
-    <?php echo $form->field($model, 'birthday', 'birthday')->typeDate() ?>
-    <?php echo $form->field($model, 'birthplace', 'birth Place') ?>
+    <?php echo $form->field($model, 'suffix', 'Suffix') ?>
+    <?php echo $form->field($model, 'birthday', 'Birthday')->typeDate() ?>
+    <?php echo $form->field($model, 'birthplace', 'Birth Place') ?>
     </div>
     </div>
     </fieldset>

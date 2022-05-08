@@ -361,3 +361,7 @@ h2 {
     overflow-y:scroll;
     height: 100vh;
 }
+
+.s-msg{
+    color: black !important;
+}

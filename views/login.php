@@ -1,5 +1,6 @@
-<?php 
-
+<?php
+use app\models;
+use app\core\form\Form;
 ?>
 
 <div class="container-fluid p-0 banner">
@@ -16,14 +17,13 @@
                     <div class="form-container">
                         <h1>LOG IN </h1>
 
-                        <form action="">
-                            <span>Userame</span>
-                            <input type="text" class="form-control">
-                            <span>Password</span>
+                        <?php
 
-                            <input type="password" class="form-control">
+                        $form = Form::begin('', 'post')?>
+                        <?php echo $form->field($model, 'username', 'Username' ) ?>
+                        <?php echo $form->field($model, 'password', 'Password' ) ?>
                             <button class="btn-signIn mt-4">SIGN IN</button>
-                        </form>
+                        <?php echo Form::end()?>
 
                         <i class="fa-solid fa-user fa-7x fa-style"></i>
                     </div>

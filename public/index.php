@@ -23,6 +23,8 @@ $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/EditResident', [SiteController::class, 'EditResident']);
 $app->router->get('/AddResident', [SiteController::class, 'AddResident']);
 $app->router->post('/AddResident', [SiteController::class, 'AddResident']);
+$app->router->get('/AddEmployee', [SiteController::class, 'AddEmployee']);
+$app->router->post('/AddEmployee', [SiteController::class, 'AddEmployee']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 
