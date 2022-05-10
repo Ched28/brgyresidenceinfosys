@@ -20,8 +20,8 @@ use app\core\form\Form;
                         <?php
 
                         $form = Form::begin('', 'post')?>
-                        <?php echo $form->field($model, 'username', 'Username' ) ?>
-                        <?php echo $form->field($model, 'password', 'Password' ) ?>
+                        <?php echo $form->field($model, 'empusername', 'Username' ) ?>
+                        <?php echo $form->field($model, 'emppassword', 'Password' )->passwordField() ?>
                             <button class="btn-signIn mt-4">SIGN IN</button>
                         <?php echo Form::end()?>
 

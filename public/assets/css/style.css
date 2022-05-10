@@ -365,3 +365,9 @@ h2 {
 .s-msg{
     color: black !important;
 }
+
+.kbw-signature { width: 400px; height: 200px;}
+#sig canvas{
+    width: 100% !important;
+    height: auto;
+}

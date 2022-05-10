@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-lg-6">
             <?php echo $form->field($model, 'empusername', 'Username') ?>
-            <?php echo $form->field($model, 'emppassword', 'Password') ?>
+            <?php echo $form->field($model, 'emppassword', 'Password')->passwordField() ?>
 
     </div>
 
@@ -66,15 +66,8 @@
     <br>
     <br>
     <hr>
-    <div class="row">
-        <div class="col-lg-6 d-flex">
-            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-qrcode"></i> &nbsp;&nbsp; Generate QR Code </button> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-signature"></i> &nbsp;&nbsp; Add Signature </button> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" class="confirm-btn btn btn-primary"> <i class="fa-solid fa-check"></i> &nbsp;&nbsp; Confirm Data </button>
-        </div>
-    </div>
     <br>
     <br>
-  <input type="submit" class="btn btn-primary">Submit</input>
+    <button type="submit" class="btn btn-success pt-2 pb-2"><i class="fa-solid fa-floppy-disk"></i>  &nbsp;&nbsp; Submit </button>
 <?php echo \app\core\form\Form::end()?>
 

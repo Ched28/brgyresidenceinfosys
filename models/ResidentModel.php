@@ -7,7 +7,7 @@ use app\core\Application;
 use app\core\DbModel;
 use app\core\Model;
 
-class AddResidentModel extends DbModel {
+class ResidentModel extends DbModel {
 
     const RESIDENT_TYPE_NEW = 'New';
     const RESIDENT_TYPE_OLD = 'Old';
@@ -41,6 +41,10 @@ class AddResidentModel extends DbModel {
     }
     public function TransactTable(): string {
         return 'brgy_transaction';
+    }
+    public function primaryKey(): string
+    {
+        return 'brgyid';
     }
     public function save(){
 
@@ -144,6 +148,10 @@ class AddResidentModel extends DbModel {
                 'trans_type',
 
             ];
+    }
+
+    public function saveforSignature(){
+
     }
 
 

@@ -15,13 +15,15 @@ class AuthController extends Controller{
         $loginModel = new loginModel();
         if($request->isPOST()) {
             $loginModel->loadData($request->getBody());
-            if($loginModel->validate()){
-                $loginModel->login();
+            if($loginModel->validate()&& $loginModel->login()){
+
                 $response->redirect('/');
                 return;
             }
         }
         $this->setLayout('auth');
-        return $this->render('login');
+        return $this->render('login', [
+            'model' => $loginModel
+        ]);
     }
 }

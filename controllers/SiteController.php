@@ -5,7 +5,8 @@ use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\models\AddEmployee;
-use app\models\AddResidentModel;
+use app\models\ResidentModel;
+
 class SiteController extends Controller{
 
     public function home(){
@@ -22,7 +23,7 @@ class SiteController extends Controller{
         return Application::$app->router->renderView('editresident');
     }
     public function AddResident(Request $request){
-        $AddResidentModel = new AddResidentModel();
+        $AddResidentModel = new ResidentModel();
         if($request->isPOST()){
             $AddResidentModel->loadData($request->getBody());
             if($AddResidentModel->validate()){
@@ -50,11 +51,11 @@ class SiteController extends Controller{
         $AddEmployee = new AddEmployee();
         if($request->isPOST()){
             $AddEmployee->loadData($request->getBody());
-            if($AddEmployee->validate()){
+            if($AddEmployee->validate()&&$AddEmployee->save()){
                 // return '<script>alert("Welcome to Geeks for Geeks")</script>';
                 // return header('LOCATION: /');
                 //$AddResidentModel->save();
-                $AddEmployee->save();
+
                 $AddEmployee->saveForTransaction();
 
                 Application::$app->session->setFlash('success', 'The Employee has been Added!');

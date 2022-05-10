@@ -34,8 +34,14 @@ class AddEmployee extends DbModel {
     public function TransactTable(): string {
         return 'brgy_transaction';
     }
-    public function save(){
 
+    public function primaryKey(): string
+    {
+        return 'EmpId';
+    }
+
+    public function save(){
+        $this->emppassword = password_hash($this->emppassword, PASSWORD_DEFAULT);
         $statement = Application::$app->db->prepare("SELECT `empId` FROM `brgy_emp_inf` ORDER BY `empId` DESC LIMIT 1;");
         $statement->execute();
 
@@ -54,6 +60,7 @@ class AddEmployee extends DbModel {
         }
 
         parent::save();
+        return true;
 
     }
     public function saveForTransaction()
@@ -118,7 +125,6 @@ class AddEmployee extends DbModel {
     public function attributesforTransact(): array {
             return [
                 'transactionid',
-
                 'trans_method',
                 'trans_type',
                 'empId'

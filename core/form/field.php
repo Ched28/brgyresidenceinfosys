@@ -10,7 +10,7 @@ class Field{
     public const TYPE_NUMBER = 'number';
     public const TYPE_HIDDEN = 'hidden';
     public const TYPE_DATE = 'date';
-
+    public const TYPE_PASSWORD = 'password';
 
     public string $type;
     public Model $model;
@@ -30,7 +30,7 @@ class Field{
         return sprintf('
         <div class="form-group">
         <label> %s </label>
-        <input type="%s" name="%s" value="%s" class="form-control user-input-field%s"  placeholder="%s">   
+        <input type="%s" name="%s" value="%s" class="form-control user-input-field%s">   
         
         <div class="invalid-feedback">
             %s
@@ -41,7 +41,7 @@ class Field{
         $this->attribute,
         $this->model->{$this->attribute},
         $this->model->hasError($this->attribute) ? ' is-invalid' : '',
-        $this->attribute,
+
         $this->model->getFirstError($this->attribute)
         );
     }
@@ -61,4 +61,9 @@ class Field{
         $this->type = self::TYPE_DATE;
         return $this;
     }
+    public function passwordField(){
+        $this->type = self::TYPE_PASSWORD;
+        return $this;
+    }
+
     }

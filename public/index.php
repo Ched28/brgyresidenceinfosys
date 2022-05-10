@@ -9,6 +9,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 $config = [
+    'EmployeeClass' => \app\models\AddEmployee::class,
     'db' => [
         'servername' => $_ENV['DB_SERVER_NAME'],
         'username' => $_ENV['DB_USER'],

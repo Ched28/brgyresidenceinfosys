@@ -81,16 +81,66 @@
     </fieldset>
     <br>
     <br>
+    <fieldset>
+        <legend>Generate QR Code</legend>
     <hr>
     <div class="row">
-        <div class="col-lg-6 d-flex">
+        <div class="col-lg-12">
             <button type="button" class="btn btn-warning"> <i class="fa-solid fa-qrcode"></i> &nbsp;&nbsp; Generate QR Code </button> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" class="btn btn-warning"> <i class="fa-solid fa-signature"></i> &nbsp;&nbsp; Add Signature </button> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" class="confirm-btn btn btn-primary"> <i class="fa-solid fa-check"></i> &nbsp;&nbsp; Confirm Data </button>
+
         </div>
+
     </div>
+    </fieldset>
     <br>
     <br>
-  <input type="submit" class="btn btn-primary">Submit</input>
+    <fieldset>
+        <legend>Add Signature</legend>
+        <hr>
+    <div class="row">
+    <div class="col-md-12">
+
+            <label class="" for="">Signature:</label>
+            <br/>
+            <div id="sig"></div>
+            <br/>
+            <button id="clear" class="btn btn-danger"><i class="fa-solid fa-signature"></i> Clear Signature</button>
+            <textarea id="signature64" name="signed" style="display: none"></textarea>
+
+    </div>
+    </div>
+        <br>
+        <br>
+    <fieldset>
+       <legend>Confirm Data</legend>
+       <hr>
+    <div class="row">
+         <div class="col-lg-6">
+             <div class="confirm-text">
+                 By This Confirmation, You verify that is information and facts of this Resident is all true.
+                 <br>
+                 <br>
+                 To certify this, please type your password.
+                 <br>
+
+                 <input type="password" class="form-control user-input-field" placeholder=" &nbsp;&nbsp; Confirm Data">
+                 <br>
+                 <br>
+             </div>
+
+         </div>
+    </div>
+    </fieldset>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success pt-2 pb-2"><i class="fa-solid fa-floppy-disk"></i>  &nbsp;&nbsp; Submit </button>
+        <script type="text/javascript">
+            var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
+            $('#clear').click(function(e) {
+                e.preventDefault();
+                sig.signature('clear');
+                $("#signature64").val('');
+            });
+        </script>
 <?php echo \app\core\form\Form::end()?>
 
