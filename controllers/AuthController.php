@@ -7,12 +7,12 @@ use app\core\Controller;
 use app\core\Request;
 
 use app\core\Response;
-use app\models\loginModel;
+use app\models\loginForm;
 
 class AuthController extends Controller{
     public function login(Request $request, Response  $response){
 
-        $loginModel = new loginModel();
+        $loginModel = new loginForm();
         if($request->isPOST()) {
             $loginModel->loadData($request->getBody());
             if($loginModel->validate()&& $loginModel->login()){
@@ -25,5 +25,10 @@ class AuthController extends Controller{
         return $this->render('login', [
             'model' => $loginModel
         ]);
+    }
+
+    public function logout(Request $request, Response $response){
+        Application::$app->logout();
+        $response->redirect('/');
     }
 }

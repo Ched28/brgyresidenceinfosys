@@ -1,6 +1,11 @@
-<?php 
+<?php
 
+/**
+ * @var AddEmployee $username;
+ **/
 
+use app\core\Application;
+use app\models\AddEmployee;
 
 ?>
 
@@ -23,7 +28,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="welcome-content">
-                            <h1>WELCOME <?php echo $name ?> <br> <?php echo $emailadd ?></h1>
+                            <?php if(Application::isGuest()): ?>
+                            <h1>Welcome Guest!</h1>
+                            <?php else: ?>
+                                <h1>Welcome <?php echo Application::$app->username->getDisplayName();?></h1>
+                            <?php endif; ?>
                             <div class="d-flex flex-row justify-content-between">
                                 <input type="text" class="form-control p-3 welcome-search" placeholder="SEARCH FOR RESIDENTS INFO">
                                 <button class="btn-sh"><i class="fa-solid fa-magnifying-glass ps-2"></i>Search</button>

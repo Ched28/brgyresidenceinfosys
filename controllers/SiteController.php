@@ -58,7 +58,7 @@ class SiteController extends Controller{
 
                 $AddEmployee->saveForTransaction();
 
-                Application::$app->session->setFlash('success', 'The Employee has been Added!');
+                Application::$app->session->setFlash('success', 'The AddEmployee has been Added!');
                 Application::$app->response->redirect('/');
 
             }else{

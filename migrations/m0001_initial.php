@@ -24,7 +24,7 @@ CREATE TABLE `brgy_emp_inf` (
   `EmpContactNo2` varchar(15) NOT NULL,
   `EmailAdd` varchar(50) NOT NULL,
   `EmpUsername` varchar(15) NOT NULL,
-  `EmpPassword` varchar(15) NOT NULL
+  `EmpPassword` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -46,7 +46,8 @@ CREATE TABLE `brgy_res_info` (
   `CivilStatus` varchar(10) NOT NULL,
   `Religion` varchar(30) NOT NULL,
   `Province` varchar(30) NOT NULL,
-  `ResidentType` varchar(30) NOT NULL
+  `ResidentType` varchar(30) NOT NULL,
+  `precinct` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

@@ -5,7 +5,7 @@
 <div class="container-fluid scroll-container">
 <div class="header">
     <div>
-<h1>ADD RESIDENT </h1>
+<h1>ADD EMPLOYEE </h1>
 </div>
 <div>
 
@@ -39,7 +39,7 @@
     <div class="row">
     <div class="col-lg-6">
     <?php echo $form->field($model, 'empcontactNo1','Contact Number 1')->numberField() ?>
-    <?php echo $form->field($model, 'empcontactNo1', 'Contact Number 2')->numberField() ?>
+    <?php echo $form->field($model, 'empcontactNo2', 'Contact Number 2')->numberField() ?>
     </div>
     <div class="col-lg-6">
     <?php echo $form->field($model, 'emailadd', 'Email Address')->emailField() ?>

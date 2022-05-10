@@ -1,7 +1,7 @@
 <?php
     use app\core\Application;
 
-    var_dump(Application::$app->username);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +32,21 @@
         <div class="row">
             <div class="col-lg-2 side-menu">
                 <ul>
-                    
+                    <?php if(Application::$app->isGuest()): ?>
+                    <li><i class="fa-solid fa-chart-line ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">DASHBOARD</a></li>
+                    <li><i class="fa-solid fa-people-roof ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;RESIDENT</li>
+                    <li><i class="fa-solid fa-magnifying-glass ps-2">&nbsp;&nbsp;&nbsp;&nbsp;</i>SEARCH </li>
+                    <li><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/login"> LOG IN </a></li>
+
+                    <?php else : ?>
                     <li><i class="fa-solid fa-chart-line ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">DASHBOARD</a></li>
                     <li><i class="fa-solid fa-people-roof ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;RESIDENT</li>
                     <li><i class="fa-solid fa-user-plus ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/AddResident">ADD </a></li>
-                    <li><i class="fa-solid fa-user-pen ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/EditResident">EDIT </a></li>
-                    <li><i class="fa-solid fa-magnifying-glass ps-2">&nbsp;&nbsp;&nbsp;&nbsp;</i>SEARCH </li>
+                    <li><i class="fa-solid fa-magnifying-glass ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;SEARCH </li>
                     <li><i class="fa-solid fa-id-card ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;REQUEST ID </li>
-                    <li><i class="fa-solid fa-user ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;PROFILE </li>
+                    <li><i class="fa-solid fa-user ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp; PROFILE </li>
+                    <li><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/logout"> LOG OUT </a></li>
+                    <?php endif; ?>
                 </ul>
 
             </div>

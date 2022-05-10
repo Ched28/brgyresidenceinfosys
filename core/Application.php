@@ -65,4 +65,8 @@ class Application{
         $this->session->remove('username');
     }
 
+    public static function isGuest(){
+        return !self::$app->username;
+    }
+
 }

@@ -74,7 +74,7 @@
     <div class="col-lg-6">
     <?php echo $form->field($model, 'religion', 'religion') ?>
     <?php echo $form->field($model, 'nationality', 'nationality') ?>
-
+    <?php echo $form->field($model, 'precinct', 'Precinct') ?>
 
     </div>
     </div>

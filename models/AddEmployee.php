@@ -5,9 +5,10 @@ namespace app\models;
 
 use app\core\Application;
 use app\core\DbModel;
+use app\core\EmployeeModel;
 use app\core\Model;
 
-class AddEmployee extends DbModel {
+class AddEmployee extends EmployeeModel {
 
     public string $empId = '';
     public string $emplastname = '';
@@ -133,5 +134,11 @@ class AddEmployee extends DbModel {
     }
 
 
-
+    public function getDisplayName(): string
+    {
+        if(!$this->empfirstname){
+            $this->empfirstname = '';
+        }
+        return ucfirst($this->empfirstname);
+    }
 }

@@ -33,6 +33,7 @@ class ResidentModel extends DbModel {
     public string $residenttype = '';
     public string $trans_type = '';
     public string $trans_method = '';
+    public string $precinct = '';
 
 
     public function tableName() : string
@@ -112,7 +113,8 @@ class ResidentModel extends DbModel {
             'civilstatus' => [self::RULES_REQUIRED],
             'religion' => [self::RULES_REQUIRED],
             'nationality' => [self::RULES_REQUIRED],
-            'province' => [self::RULES_REQUIRED]
+            'province' => [self::RULES_REQUIRED],
+            'precinct' => [self::RULES_REQUIRED],
             
         ];
     }
@@ -136,6 +138,7 @@ class ResidentModel extends DbModel {
             'nationality',
             'province',
             'residenttype',
+            'precinct',
 
             ];
     }
@@ -153,6 +156,8 @@ class ResidentModel extends DbModel {
     public function saveforSignature(){
 
     }
+
+
 
 
 
