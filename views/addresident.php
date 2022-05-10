@@ -1,4 +1,7 @@
-<?php 
+<?php
+/**
+ * @var ResidentModel $model;
+ **/
 
 
 ?>

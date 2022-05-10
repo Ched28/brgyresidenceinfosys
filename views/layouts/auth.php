@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://kit.fontawesome.com/c66fb07322.js" crossorigin="anonymous"></script>
     <link rel="icon" href="assets/img/logo.png">
-    <title>Log In</title>
+    <title>Resident Information System : <?php echo $this->title;?></title>
 </head>
 
 <body>

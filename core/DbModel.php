@@ -62,7 +62,9 @@ abstract class DbModel extends Model
         }
 
         $statement->execute();
-        return $statement->fetchObject(AddEmployee::class);
+        return $statement->fetchObject(static::class);
+
+
 
 
     }

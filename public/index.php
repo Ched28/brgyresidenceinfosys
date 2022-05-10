@@ -21,16 +21,17 @@ $app = new Application(dirname(__DIR__), $config);
 
 
 $app->router->get('/', [SiteController::class, 'home']);
-$app->router->get('/EditResident', [SiteController::class, 'EditResident']);
-$app->router->get('/AddResident', [SiteController::class, 'AddResident']);
-$app->router->post('/AddResident', [SiteController::class, 'AddResident']);
-$app->router->get('/AddEmployee', [SiteController::class, 'AddEmployee']);
-$app->router->post('/AddEmployee', [SiteController::class, 'AddEmployee']);
+$app->router->get('/EditResident', [AuthController::class, 'EditResident']);
+$app->router->get('/AddResident', [AuthController::class, 'AddResident']);
+$app->router->post('/AddResident', [AuthController::class, 'AddResident']);
+$app->router->get('/AddEmployee', [AuthController::class, 'AddEmployee']);
+$app->router->post('/AddEmployee', [AuthController::class, 'AddEmployee']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 
 $app->router->post('/login', [AuthController::class, 'login']);
 $app->router->get('/logout', [AuthController::class, 'logout']);
 
-
+$app->router->get('/profile', [AuthController::class, 'profile']);
+$app->router->get('/profile/{id:\d+}/{username}', [AuthController::class, 'profile']);
 $app->run();

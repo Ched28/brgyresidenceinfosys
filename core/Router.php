@@ -1,10 +1,13 @@
 <?php 
 
 namespace app\core;
+use app\core\exception\NotFoundException;
+
 class Router{
-    public Request $request;
-    public Response $response;
+    private Request $request;
+    private Response $response;
     protected array $routes = [];
+
 
     public function __construct(Request $request, Response $response)
     {
@@ -19,49 +22,94 @@ class Router{
 
         $this->routes['post'][$path] = $callback;
     }
+    public function getRouteMap($method): array
+    {
+        return $this->routes[$method] ?? [];
+    }
+    public function getCallback()
+    {
+        $method = $this->request->Method();
+        $url = $this->request->getUrl();
+        // Trim slashes
+        $url = trim($url, '/');
 
+        // Get all routes for current request method
+        $routes = $this->getRouteMap($method);
+
+        $routeParams = false;
+
+        // Start iterating registed routes
+        foreach ($routes as $route => $callback) {
+            // Trim slashes
+            $route = trim($route, '/');
+            $routeNames = [];
+
+            if (!$route) {
+                continue;
+            }
+
+            // Find all route names from route and save in $routeNames
+            if (preg_match_all('/\{(\w+)(:[^}]+)?}/', $route, $matches)) {
+                $routeNames = $matches[1];
+            }
+
+
+            // Convert route name into regex pattern
+            $routeRegex = "@^" . preg_replace_callback('/\{\w+(:n ([^}]+))?}/', fn($m) => isset($m[2]) ? "({$m[2]})" : '(\w+)', $route) . "$@";
+
+            // Test and match current route against $routeRegex
+            if (preg_match_all($routeRegex, $url, $valueMatches)) {
+                $values = [];
+                for ($i = 1; $i < count($valueMatches); $i++) {
+                    $values[] = $valueMatches[$i][0];
+                }
+                $routeParams = array_combine($routeNames, $values);
+
+                $this->request->setRouteParams($routeParams);
+                return $callback;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @throws NotFoundException
+     */
     public function resolve(){
-       $path = $this->request->getPath();
+       $path = $this->request->getUrl();
        $method = $this->request->method();
        
         $callback = $this->routes[$method][$path] ?? false;
-        if($callback === false){
-            $this->response->setStatusCode(400);
-            return $this->renderView("_404");
+        if(!$callback){
+            $callback = $this->getCallback();
+            if($callback === false){
+
+                $this->response->setStatusCode(400);
+                throw new NotFoundException();
+        }
+
             
         }
 
         if(is_string($callback)){
-            return $this->renderView($callback);
+            return Application::$app->view->renderView($callback);
         }
         if(is_array($callback)){
-            Application::$app->controller = new $callback[0]();
-            $callback[0] = Application::$app->controller;
+            /** @var Controller $controller */
+
+            $controller = new $callback[0]();
+            Application::$app->controller =  $controller;
+            $controller->action = $callback[1];
+            $callback[0] = $controller;
+
+            foreach ($controller->getMiddlewares() as $middleware){
+                $middleware->execute();
+            }
             
         }
-        return call_user_func($callback, $this->request, $this->response);
+        return  call_user_func($callback, $this->request, $this->response);
     }
 
-    public function renderView($view, $params = []){
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view, $params);
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-       
-    }
-    protected function layoutContent(){
-        $layout = Application::$app->controller->layout;
-        ob_start();
-        include_once Application::$ROOT_DIR."/views/layouts/$layout.php";
-        return ob_get_clean();
-    }
 
-    protected function renderOnlyView($view, $params){
-
-        foreach($params as $key => $value){
-            $$key = $value;
-        }
-        ob_start();
-        include_once Application::$ROOT_DIR."/views/$view.php";
-        return ob_get_clean();
-    }
 }

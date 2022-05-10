@@ -1,5 +1,8 @@
-<?php 
+<?php
 
+/**
+ * @var AddEmployee $model;
+ **/
 
 ?>
 <div class="container-fluid scroll-container">

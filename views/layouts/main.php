@@ -23,7 +23,7 @@
     <link rel="icon" href="assets/img/logo.png">
 
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.signature.css">
-    <title>Resident Information System</title>
+    <title>Resident Information System: <?php echo $this->title; ?></title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                     <li><i class="fa-solid fa-user-plus ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/AddResident">ADD </a></li>
                     <li><i class="fa-solid fa-magnifying-glass ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;SEARCH </li>
                     <li><i class="fa-solid fa-id-card ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp;REQUEST ID </li>
-                    <li><i class="fa-solid fa-user ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp; PROFILE </li>
+                        <li><i class="fa-solid fa-user ps-2"></i>&nbsp;&nbsp;&nbsp;&nbsp; <a href="/profile">PROFILE</a> </li>
                     <li><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/logout"> LOG OUT </a></li>
                     <?php endif; ?>
                 </ul>

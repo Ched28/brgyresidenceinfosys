@@ -4,14 +4,15 @@
 namespace app\core;
 
 class Request{
-    public function getPath(){
-        $path = $_SERVER['REQUEST_URI'] ?? '/';
-        $position = strpos($path, '?');
-        if($position === false){
-            return $path;
-        }
+    private array $routeParams = [];
 
-        return  substr($path , 0, $position);
+    public function getUrl(){
+        $path = $_SERVER['REQUEST_URI'];
+        $position = strpos($path, '?');
+        if ($position !== false) {
+            $path = substr($path, 0, $position);
+        }
+        return $path;
         
     }
     public function method(){
@@ -39,5 +40,24 @@ class Request{
         }  
 
         return $body;
+    }
+    /**
+     * @param $params
+     * @return self
+     */
+    public function setRouteParams($params)
+    {
+        $this->routeParams = $params;
+        return $this;
+    }
+
+    public function getRouteParams()
+    {
+        return $this->routeParams;
+    }
+
+    public function getRouteParam($param, $default = null)
+    {
+        return $this->routeParams[$param] ?? $default;
     }
 }

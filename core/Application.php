@@ -5,6 +5,8 @@ use app\models\AddEmployee;
 
 class Application{
     public static string $ROOT_DIR;
+
+    public string $layout = 'main';
     public string $EmployeeClass;
     public Router $router;
     public Request $request;
@@ -12,9 +14,10 @@ class Application{
     public Session $session;
     public Database $db;
 
-    public ?DbModel $username;
+    public ?EmployeeModel $username;
+    public View $view;
     public static Application $app;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public function __construct($rootPath, array $config){
 
         $this->EmployeeClass = $config['EmployeeClass'];
@@ -24,9 +27,11 @@ class Application{
         $this->response = new Response();
         $this->session = new Session();
         $this->router = new Router($this->request, $this->response);
-
+        $this->view = new View();
         $this->db = new Database($config['db']);
         $primaryValue = $this->session->get('username');
+
+
         if($primaryValue){
             $primaryKey = (new \app\models\AddEmployee)->primaryKey();
             $this->username = (new \app\models\AddEmployee)->findOne([$primaryKey => $primaryValue]);
@@ -40,7 +45,15 @@ class Application{
 
     }
     public function run(){
-       echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        }catch (\Exception $e){
+            $this->response->setStatusCode($e->getCode());
+            echo $this->view->renderView('_error',[
+                'exception' => $e
+            ]);
+        }
+
     }
 
     public function getController(): \app\core\Controller{
@@ -50,7 +63,7 @@ class Application{
         $this->controller = $controller; 
     }
 
-    public function login(DbModel  $username){
+    public function login(EmployeeModel  $username){
         $this->username = $username;
 
         $primaryKey = $username->primaryKey();
